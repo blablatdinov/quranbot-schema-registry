@@ -1,2 +1,40 @@
-__pycache__/
-dist
+# redactors
+.idea/
+.vscode
+*.swp
+
+# system files
+.DS_Store
+
+# cache files
+*__pycache__/
+celerybeat*
+
+# pytest and coverage
+.coverage
+cov.xml
+.pytest_cache
+htmlcov/
+
+# database and dumps
+*.sql*
+db.sqlite3
+dumps/
+
+# environment
+venv/
+.venv/
+.env
+
+# static 
+static/
+
+# logs
+logs/
+
+# tmp files
+tmp*
+
+# bin files
+bin/
+
