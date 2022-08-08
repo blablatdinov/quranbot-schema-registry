@@ -12,9 +12,11 @@
         "data": {
             "type": "object",
             "properties": {
+                "public_id": {"type": "string"},
                 "text": {"type": "string"}
             },
             "required": [
+                "public_id",
                 "text"
             ]
         }
