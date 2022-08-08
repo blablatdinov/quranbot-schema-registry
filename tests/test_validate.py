@@ -8,7 +8,7 @@ from quranbot_schema_registry.validate_schema import _get_definition_file_path, 
 
 
 def test_get_definition_file_path():
-    got = _get_definition_file_path('Task.added', 1)
+    got = _get_definition_file_path('Task.Added', 1)
 
     assert got == 'schemas/task/added/1.json'
 
