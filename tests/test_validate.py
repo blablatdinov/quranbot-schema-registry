@@ -13,7 +13,11 @@ def test_get_definition_file_path():
     assert got == 'schemas/task/added/1.json'
 
 
-def test_validate_schema():
+@pytest.mark.parametrize('event_name,event_version,event_data', [
+    ('Mailing.Created', 1, {'text': 'mailing text'}),
+    ('File.SendTriggered', 1, {'file_id': 123}),
+])
+def test_validate_schema(event_name,event_version,event_data):
     got = validate_schema(
         {
             "event_id": "some_id",
