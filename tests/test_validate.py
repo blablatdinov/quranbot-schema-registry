@@ -2,7 +2,7 @@ import json
 import os
 
 import pytest
-from jsonschema import validate, Draft202012Validator
+from jsonschema import Draft202012Validator
 
 from quranbot_schema_registry.validate_schema import _get_definition_file_path, validate_schema, BASE_DIR
 
@@ -16,21 +16,21 @@ def test_get_definition_file_path():
 @pytest.mark.parametrize('event_name,event_version,event_data', [
     ('Mailing.Created', 1, {'text': 'mailing text'}),
     ('File.SendTriggered', 1, {'file_id': 123}),
+    ('Messages.Created', 1, {'messages': [{'message_json': {}, 'is_unknown': False, 'trigger_message_id': None}]}),
+    ('Button.Pushed', 1, {'json': {}, 'timestamp': '843795'}),
 ])
-def test_validate_schema(event_name,event_version,event_data):
-    got = validate_schema(
+def test_validate_schema(event_name, event_version, event_data):
+    validate_schema(
         {
             "event_id": "some_id",
             "event_version": 1,
             "event_name": "event_name",
             "event_time": "392409283",
             "producer": "some producer",
-            "data": {
-                "text": "mailing text",
-            },
+            "data": event_data,
         },
-        event_name='Mailing.created',
-        version=1,
+        event_name=event_name,
+        version=event_version,
     )
 
 
@@ -41,4 +41,4 @@ def test_validate_schema(event_name,event_version,event_data):
 ])
 def test_schemas(file_path):
     with open(file_path, 'r') as schema_file:
-        schema = Draft202012Validator(schema=json.load(schema_file))
+        Draft202012Validator(schema=json.load(schema_file))
