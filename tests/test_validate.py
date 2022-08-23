@@ -2,7 +2,7 @@ import json
 import os
 
 import pytest
-from jsonschema import validate, Draft202012Validator
+from jsonschema import Draft202012Validator
 
 from quranbot_schema_registry.validate_schema import _get_definition_file_path, validate_schema, BASE_DIR
 
@@ -17,6 +17,7 @@ def test_get_definition_file_path():
     ('Mailing.Created', 1, {'text': 'mailing text'}),
     ('File.SendTriggered', 1, {'file_id': 123}),
     ('Messages.Created', 1, {'messages': [{'message_json': {}, 'is_unknown': False, 'trigger_message_id': None}]}),
+    ('Button.Pushed', 1, {'json': {}, 'timestamp': '843795'}),
 ])
 def test_validate_schema(event_name, event_version, event_data):
     validate_schema(
