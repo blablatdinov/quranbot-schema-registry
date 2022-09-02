@@ -37,4 +37,5 @@ tmp*
 
 # bin files
 bin/
+dist/
 
