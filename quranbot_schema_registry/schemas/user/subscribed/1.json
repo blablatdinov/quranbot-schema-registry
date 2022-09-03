@@ -12,11 +12,13 @@
         "data": {
             "type": "object",
             "properties": {
-                "user_id":   { "type": "integer" },
-                "date_time": { "type": "string" }
+                "user_id":     { "type": "integer" },
+                "date_time":   { "type": "string" },
+                "referrer_id": { "type": "string" }
             },
             "required": [
                 "user_id",
+                "referrer_id",
                 "date_time"
             ]
         }
