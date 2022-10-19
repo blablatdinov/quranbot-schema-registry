@@ -18,6 +18,7 @@ def test_get_definition_file_path():
     ('File.SendTriggered', 1, {'file_id': 123}),
     ('Messages.Created', 1, {'messages': [{'message_json': {}, 'is_unknown': False, 'trigger_message_id': None}]}),
     ('Button.Pushed', 1, {'json': {}, 'timestamp': '843795'}),
+    ('User.Subscribed', 1, {'user_id': 843795, 'referrer_id': None, 'date_time': '893475'}),
 ])
 def test_validate_schema(event_name, event_version, event_data):
     validate_schema(
