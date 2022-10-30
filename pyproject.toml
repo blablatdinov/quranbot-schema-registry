@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "quranbot-schema-registry"
-version = "0.0.15"
+version = "0.0.16"
 description = "quranbot-schema-registry"
 authors = ["Almaz Ilaletdinov <a.ilaletdinov@yandex.ru>"]
 
