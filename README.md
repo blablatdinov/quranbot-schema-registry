@@ -1,1 +1,1 @@
-Схема событий для проекта https://github.com/blablatdinon/quranbot-aiogram
+Схема событий для проекта https://github.com/blablatdinov/quranbot-aiogram
