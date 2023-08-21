@@ -1,16 +1,15 @@
 [tool.poetry]
 name = "quranbot-schema-registry"
-version = "0.0.16"
+version = "0.0.17"
 description = "quranbot-schema-registry"
 authors = ["Almaz Ilaletdinov <a.ilaletdinov@yandex.ru>"]
 
 [tool.poetry.dependencies]
 python = "^3.9"
-pydantic = "^1.9.0"
 jsonschema = "^4.7.2"
 
 [tool.poetry.dev-dependencies]
-pytest = "^4.6"
+pytest = "^7.4"
 
 [tool.pytest.ini_options]
 

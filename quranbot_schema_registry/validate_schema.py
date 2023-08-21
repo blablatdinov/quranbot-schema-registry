@@ -10,11 +10,9 @@ BASE_DIR = Path(__file__).parent
 def validate_schema(event: dict, event_name: str, version: int):
     definition_file_path = BASE_DIR / _get_definition_file_path(event_name, version)
     try:
-        with open(definition_file_path, 'r') as schema_file:
-            schema = json.load(schema_file)
+        schema = json.loads(definition_file_path.read_text())
     except FileNotFoundError:
         raise TypeError(f'Schema file for event {event_name} version: {version} not found')
-
     try:
         validate(instance=event, schema=schema)
     except ValidationError as e:

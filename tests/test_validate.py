@@ -1,3 +1,4 @@
+from pathlib import Path
 import json
 import os
 
@@ -42,5 +43,15 @@ def test_validate_schema(event_name, event_version, event_data):
     if len(x[2]) > 0
 ])
 def test_schemas(file_path):
-    with open(file_path, 'r') as schema_file:
-        Draft202012Validator(schema=json.load(schema_file))
+    Draft202012Validator(schema=json.loads(Path(file_path).read_text()))
+
+
+@pytest.mark.parametrize('file_path', [
+    f'{x[0]}/{x[2][0]}'
+    for x in os.walk(BASE_DIR / 'schemas')
+    if len(x[2]) > 0
+])
+def test_formats(file_path):
+    file_content = Path(file_path).read_text()
+
+    assert file_content == json.dumps(json.loads(file_content), indent=2)
