@@ -21,6 +21,15 @@ def test_get_definition_file_path():
     ('Button.Pushed', 1, {'json': {}, 'timestamp': '843795'}),
     ('User.Subscribed', 1, {'user_id': 843795, 'referrer_id': None, 'date_time': '893475'}),
     ('Prayers.Sended', 1, {}),
+    ('Ayat.Changed', 1, {
+        'public_id': '0acec6b6-4b3c-4ce9-8d11-3985f52a1c03',
+        'day': 2,
+        'audio_id': 'a2ed8d0e-ce4b-4994-9a12-e36482263cb7',
+        'ayat_number': '1-3',
+        'content': 'Updated content',
+        'arab_text': 'Updated arab text',
+        'transliteration': 'Updated arab transliteration',
+    }),
 ])
 def test_validate_schema(event_name, event_version, event_data):
     validate_schema(
@@ -52,6 +61,6 @@ def test_schemas(file_path):
     if len(x[2]) > 0
 ])
 def test_formats(file_path):
-    file_content = Path(file_path).read_text()
+    file_content = Path(file_path).read_text().strip()
 
     assert file_content == json.dumps(json.loads(file_content), indent=2)
