@@ -30,6 +30,7 @@ def test_get_definition_file_path():
         'arab_text': 'Updated arab text',
         'transliteration': 'Updated arab transliteration',
     }),
+    ('DailyContent.Created', 1, {'day': 2, 'ayat_ids': [1, 2, 3]}),
 ])
 def test_validate_schema(event_name, event_version, event_data):
     validate_schema(

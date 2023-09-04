@@ -1,3 +1,4 @@
+import re
 import json
 from pathlib import Path
 
@@ -20,7 +21,8 @@ def validate_schema(event: dict, event_name: str, version: int):
 
 
 def _get_definition_file_path(event_name: str, version: int) -> str:
-    return 'schemas/{}/{}.json'.format(
-        event_name.lower().replace('.', '/'),
-        version,
-    )
+    components = '/'.join([
+        '_'.join(word.lower() for word in re.findall(r'[A-Z][a-z0-9]*', elem))
+        for elem in event_name.split('.')
+    ])
+    return 'schemas/{}/{}.json'.format(components, version)
