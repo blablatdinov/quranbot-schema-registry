@@ -1,4 +1,5 @@
 from pathlib import Path
+import uuid
 import json
 import os
 
@@ -16,7 +17,7 @@ def test_get_definition_file_path():
 
 @pytest.mark.parametrize('event_name,event_version,event_data', [
     ('Mailing.Created', 1, {'text': 'mailing text'}),
-    ('File.SendTriggered', 1, {'file_id': 123}),
+    ('File.SendTriggered', 1, {'file_id': str(uuid.uuid4()), 'source': 'disk'}),
     ('Messages.Created', 1, {'messages': [{'message_json': {}, 'is_unknown': False, 'trigger_message_id': None}]}),
     ('Button.Pushed', 1, {'json': {}, 'timestamp': '843795'}),
     ('User.Subscribed', 1, {'user_id': 843795, 'referrer_id': None, 'date_time': '893475'}),
