@@ -32,6 +32,12 @@ def test_get_definition_file_path():
         'transliteration': 'Updated arab transliteration',
     }),
     ('DailyContent.Created', 1, {'day': 2, 'ayat_ids': [1, 2, 3]}),
+    ('Prayers.Created', 1, {'prayers': [{
+        'name': 'fajr',
+        'time': '5:36',
+        'city_id': '4075504b-4b6f-4978-bf9c-8ecd5ecf9192',
+        'day': '2023-01-02',
+    }]}),
 ])
 def test_validate_schema(event_name, event_version, event_data):
     validate_schema(
