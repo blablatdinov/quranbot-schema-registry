@@ -29,7 +29,8 @@
           "items": {
             "message_json": "object",
             "is_unknown": "boolean",
-            "trigger_message_id": "integer"
+            "trigger_message_id": "integer",
+            "trigger_callback_id": "integer"
           }
         }
       },
