@@ -26,6 +26,12 @@
       "properties": {
         "text": {
           "type": "string"
+        },
+        "group": {
+          "enum": [
+            "admins",
+            "all"
+          ]
         }
       },
       "required": [
