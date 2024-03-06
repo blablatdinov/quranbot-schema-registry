@@ -27,6 +27,9 @@
         "text": {
           "type": "string"
         },
+        "mailing_id": {
+          "type": "string"
+        },
         "group": {
           "enum": [
             "admins",

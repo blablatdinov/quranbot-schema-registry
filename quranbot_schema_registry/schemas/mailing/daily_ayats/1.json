@@ -1,7 +1,7 @@
 {
   "$id": "https://example.com/demo",
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "title": "User.Subscribed.v1",
+  "title": "Mailing.Created.v1",
   "version": 1,
   "properties": {
     "event_id": {
@@ -21,28 +21,7 @@
     "producer": {
       "type": "string"
     },
-    "data": {
-      "type": "object",
-      "properties": {
-        "user_id": {
-          "type": "integer"
-        },
-        "date_time": {
-          "type": "string"
-        },
-        "referrer_id": {
-          "type": [
-            "string",
-            "null"
-          ]
-        }
-      },
-      "required": [
-        "user_id",
-        "referrer_id",
-        "date_time"
-      ]
-    }
+    "data": {}
   },
   "required": [
     "event_id",

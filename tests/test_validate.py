@@ -18,7 +18,7 @@ def test_get_definition_file_path():
 @pytest.mark.parametrize('event_name,event_version,event_data', [
     ('Mailing.Created', 1, {'text': 'mailing text'}),
     ('File.SendTriggered', 1, {'file_id': str(uuid.uuid4()), 'source': 'disk'}),
-    ('Messages.Created', 1, {'messages': [{'message_json': {}, 'is_unknown': False, 'trigger_message_id': None}]}),
+    ('Messages.Created', 1, {'messages': [{'message_json': {}, 'is_unknown': False, 'trigger_message_id': None, 'trigger_callback_id': None, 'mailing_id': None}]}),
     ('Button.Pushed', 1, {'json': {}, 'timestamp': '843795'}),
     ('User.Subscribed', 1, {'user_id': 843795, 'referrer_id': None, 'date_time': '893475'}),
     ('Prayers.Sended', 1, {}),
@@ -38,6 +38,7 @@ def test_get_definition_file_path():
         'city_id': '4075504b-4b6f-4978-bf9c-8ecd5ecf9192',
         'day': '2023-01-02',
     }]}),
+    ('Mailing.DailyAyats', 1, {}),
 ])
 def test_validate_schema(event_name, event_version, event_data):
     validate_schema(
