@@ -1,7 +1,7 @@
 {
   "$id": "https://example.com/demo",
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "title": "Mailing.Created.v1",
+  "title": "Mailing.DailyAyats.v1",
   "version": 1,
   "properties": {
     "event_id": {

@@ -21,7 +21,6 @@ def test_get_definition_file_path():
     ('Messages.Created', 1, {'messages': [{'message_json': {}, 'is_unknown': False, 'trigger_message_id': None, 'trigger_callback_id': None, 'mailing_id': None}]}),
     ('Button.Pushed', 1, {'json': {}, 'timestamp': '843795'}),
     ('User.Subscribed', 1, {'user_id': 843795, 'referrer_id': None, 'date_time': '893475'}),
-    ('Prayers.Sended', 1, {}),
     ('Ayat.Changed', 1, {
         'public_id': '0acec6b6-4b3c-4ce9-8d11-3985f52a1c03',
         'day': 2,
@@ -39,6 +38,7 @@ def test_get_definition_file_path():
         'day': '2023-01-02',
     }]}),
     ('Mailing.DailyAyats', 1, {}),
+    ('Mailing.DailyPrayers', 1, {}),
 ])
 def test_validate_schema(event_name, event_version, event_data):
     validate_schema(
